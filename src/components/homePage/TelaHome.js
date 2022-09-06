@@ -1,59 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { cadastrar } from "../../services/services";
+import logout from "../../images/logout.svg";
+import entrada from "../../images/entrada.svg";
+import saida from "../../images/saida.svg";
 
-import { Corpo, Titulo, Login, Cadastro } from "./Styled-Login-Cadastro";
+import { Container, Topo, BoxExtrato, Menu, Buttons } from "./Styled-Home";
 
 export default function TelaHome () {
-    const navigate = useNavigate();
-
-    const [nome, setNome] = useState("");
-    const [email, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-    const [confsenha, setConfSenha] = useState("");
-    const [botao, setBotao] = useState("Cadastrar");
-    const [isDisabled, setIsDisabled] = useState(false);
-
-    function fazerCadastro (e) {
-        e.preventDefault();
-        setIsDisabled(true);
-
-        const cadastroAPI = {
-            nome,
-            email,
-            senha
-        }
-        
-        cadastrar(cadastroAPI)           
-        .then(() => {
-            navigate('/');
-        })
-        .catch(() => {
-            setBotao("Cadastrar");
-            setIsDisabled(false);
-        });
-}
-
+    
 return (
-    <Corpo>
-        <Titulo> MyWallet </Titulo>  
+    <Container>
+        <Topo>
+            <h1>Olá, Fulano</h1>
+            <img src={logout} alt="logout" />
+        </Topo>
 
-        <Login onSubmit={fazerCadastro}>
-            <input placeholder="Nome" type="text" value={nome} onChange={e => setNome(e.target.value)} required disabled={isDisabled} />
-            <input placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)} required disabled={isDisabled} />
-            <input placeholder="Senha" type="password" value={senha} onChange={e => setSenha(e.target.value)} required disabled={isDisabled} />
-            <input placeholder="Confirme a senha" type="password" value={confsenha} onChange={e => setConfSenha(e.target.value)} required disabled={isDisabled} />
-            <button type="submit" disabled={isDisabled}>
-                <div>{botao}</div>
-            </button>
-        </Login>
+        <BoxExtrato>
 
-        <Link to={`/`}>
-            <Cadastro disabled={isDisabled}>
-                Já tem uma conta? Entre agora!
-            </Cadastro>
-        </Link>
-    </Corpo>
+        </BoxExtrato>
+
+        <Menu>
+            <Buttons>
+                <img src={entrada} alt="entrada" />
+                <h2>Nova entrada</h2>
+            </Buttons>
+            <Buttons>
+                <img src={saida} alt="entrada" />
+                <h2>Nova saída</h2>
+            </Buttons>
+        </Menu>
+    </Container>
 )
 }

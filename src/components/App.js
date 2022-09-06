@@ -20,8 +20,8 @@ export default function App() {
                         <Route path="/"          element={<TelaLogin />} />
                         <Route path="/cadastro"  element={<TelaCadastro />} />
                         <Route path="/home"  element={<TelaHome/>} />
-
-
+                        <Route path="/entrada"  element={<TelaNovaEntrada/>} />
+                        <Route path="/saida"  element={<TelaNovaSaida/>} />
 
 
 {/*                         <Route path="/home"     element={
