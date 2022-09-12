@@ -6,9 +6,8 @@ import reset from "styled-reset";
 
 import TelaLogin from "./login_e_cadastro/TelaLogin";
 import TelaCadastro from "./login_e_cadastro/TelaCadastro";
-import TelaHome from "./homePage/TelaHome";
-import TelaNovaEntrada from "./add_entrada_saida/TelaNovaEntrada";
-import TelaNovaSaida from "./add_entrada_saida/TelaNovaSaida";
+import Transacoes from "./homePage/Transacoes";
+import FormularioTransacao from "./add_entrada_saida/FormularioTransacao";
 
 export default function App() {
   return (
@@ -18,17 +17,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<TelaLogin />} />
           <Route path="/cadastro" element={<TelaCadastro />} />
-          <Route path="/transacoes" element={<TelaHome />} />
-          <Route path="/entrada" element={<TelaNovaEntrada />} />
-          <Route path="/saida" element={<TelaNovaSaida />} />
-
-          {/* 
-
-                        <Route path="/NovaSaida" element={
-                                                    <PrivatePage>
-                                                        <NovaSaida />
-                                                    </PrivatePage>
-                                                } /> */}
+          <Route path="/transacoes" element={<Transacoes />} />
+          <Route path="/addTransacao" element={<FormularioTransacao />} />
         </Routes>
       </BrowserRouter>
     </>

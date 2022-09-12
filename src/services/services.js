@@ -29,4 +29,32 @@ function deleteLogin() {
   return promise;
 }
 
-export { postCadastro, postLogin, deleteLogin };
+function postTransacao(body) {
+  const config = createHeaders();
+  const promise = axios.post(`${BASE_URL}/transactions`, body, config);
+  return promise;
+}
+
+function getTransacao() {
+  const config = createHeaders();
+  const promise = axios.get(`${BASE_URL}/transactions`, config);
+  return promise;
+}
+
+function deleteTransacao(transactionId) {
+  const config = createHeaders();
+  const promise = axios.delete(
+    `${BASE_URL}/transactions/${transactionId}`,
+    config
+  );
+  return promise;
+}
+
+export {
+  postCadastro,
+  postLogin,
+  deleteLogin,
+  postTransacao,
+  getTransacao,
+  deleteTransacao,
+};
