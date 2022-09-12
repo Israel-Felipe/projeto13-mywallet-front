@@ -12,7 +12,7 @@ export default function TelaEntrada () {
     
 
     function enviarEntrada (e) {
-
+        console.log(valor)
     }
 
 return (
@@ -22,7 +22,7 @@ return (
         </Topo>
 
         <Registro onSubmit={enviarEntrada}>
-                <input placeholder="Valor" type="number" value={valor} onChange={e => setValor(e.target.value)} required disabled={isDisabled} /> {/* https://dev.to/vanribeiro/formatando-numeros-e-moedas-com-tolocalestring-2j97 */}
+                <input placeholder="Valor" type="number" step="0.01" name="quantity" min="0.01" value={valor} onChange={e => setValor(e.target.value)} required disabled={isDisabled} /> {/* https://dev.to/vanribeiro/formatando-numeros-e-moedas-com-tolocalestring-2j97 */}
                 <input placeholder="Descrição" type="text" value={descricao} onChange={e => setDescricao(e.target.value)} required disabled={isDisabled} />
                 
                 <button type="submit" disabled={isDisabled}>

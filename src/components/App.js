@@ -11,40 +11,28 @@ import TelaNovaEntrada from "./add_entrada_saida/TelaNovaEntrada";
 import TelaNovaSaida from "./add_entrada_saida/TelaNovaSaida";
 
 export default function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <GlobalStyled />
+        <Routes>
+          <Route path="/" element={<TelaLogin />} />
+          <Route path="/cadastro" element={<TelaCadastro />} />
+          <Route path="/transacoes" element={<TelaHome />} />
+          <Route path="/entrada" element={<TelaNovaEntrada />} />
+          <Route path="/saida" element={<TelaNovaSaida />} />
 
-    return (
-        <>
-        <BrowserRouter>
-            <GlobalStyled />
-                    <Routes>
-                        <Route path="/"          element={<TelaLogin />} />
-                        <Route path="/cadastro"  element={<TelaCadastro />} />
-                        <Route path="/home"  element={<TelaHome/>} />
-                        <Route path="/entrada"  element={<TelaNovaEntrada/>} />
-                        <Route path="/saida"  element={<TelaNovaSaida/>} />
-
-
-{/*                         <Route path="/home"     element={
-                                                    <PrivatePage>
-                                                        <Home />
-                                                    </PrivatePage>
-                                                } />
-
-                        <Route path="/NovaEntrada"   element={
-                                                    <PrivatePage>
-                                                        <NovaEntrada />
-                                                    </PrivatePage>
-                                                } />
+          {/* 
 
                         <Route path="/NovaSaida" element={
                                                     <PrivatePage>
                                                         <NovaSaida />
                                                     </PrivatePage>
                                                 } /> */}
-                    </Routes>
-        </BrowserRouter>
-        </>
-    )
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 const GlobalStyled = createGlobalStyle`
