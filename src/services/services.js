@@ -31,22 +31,19 @@ function deleteLogin() {
 
 function postTransacao(body) {
   const config = createHeaders();
-  const promise = axios.post(`${BASE_URL}/transactions`, body, config);
+  const promise = axios.post(`${BASE_URL}/transacoes`, body, config);
   return promise;
 }
 
 function getTransacao() {
   const config = createHeaders();
-  const promise = axios.get(`${BASE_URL}/transactions`, config);
+  const promise = axios.get(`${BASE_URL}/transacoes`, config);
   return promise;
 }
 
-function deleteTransacao(transactionId) {
+function deleteTransacao(transacaoId) {
   const config = createHeaders();
-  const promise = axios.delete(
-    `${BASE_URL}/transactions/${transactionId}`,
-    config
-  );
+  const promise = axios.delete(`${BASE_URL}/transacoes/${transacaoId}`, config);
   return promise;
 }
 

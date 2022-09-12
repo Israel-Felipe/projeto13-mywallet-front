@@ -6,7 +6,7 @@ import { postTransacao } from "../../services/services";
 import { Container, Topo, Registro } from "./Styled-Entrada-Saida.js";
 
 export default function FormularioTransacao() {
-  const { type } = useLocation().state;
+  const { tipo } = useLocation().state;
   const [valor, setValor] = useState("");
   const [descricao, setDescricao] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
@@ -21,11 +21,12 @@ export default function FormularioTransacao() {
     const transacao = {
       valor: amount,
       descricao,
-      type,
+      tipo,
     };
+
     postTransacao(transacao)
       .then(() => {
-        navigate("/transacao");
+        navigate("/transacoes");
       })
       .catch((error) => {
         console.log(error);
@@ -36,7 +37,7 @@ export default function FormularioTransacao() {
   return (
     <Container>
       <Topo>
-        <h1>Nova {type}</h1>
+        <h1>Nova {tipo}</h1>
       </Topo>
 
       <Registro onSubmit={enviarEntrada}>
@@ -61,7 +62,7 @@ export default function FormularioTransacao() {
         />
 
         <button type="submit" disabled={isDisabled}>
-          <div>Salvar</div>
+          <div>{tipo === "entrada" ? "Salvar entrada" : "Salvar saída"}</div>
         </button>
       </Registro>
     </Container>

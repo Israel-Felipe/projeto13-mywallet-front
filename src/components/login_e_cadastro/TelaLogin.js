@@ -28,7 +28,7 @@ export default function TelaLogin() {
         const infoJSON = JSON.stringify({ token, usuario });
         localStorage.setItem("mywallet", infoJSON);
 
-        navigate("/transactions");
+        navigate("/transacoes");
       })
       .catch(() => {
         alert("Login ou senha incorretos");

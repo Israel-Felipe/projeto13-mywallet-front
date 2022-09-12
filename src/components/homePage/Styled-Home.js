@@ -17,12 +17,18 @@ export const Topo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   h1 {
     color: #ffffff;
     font-size: 26px;
     font-weight: bold;
   }
+`;
+
+export const BoxExtrato = styled.div`
+  width: 100%;
+  height: 70%;
+  background-color: #ffffff;
+  border-radius: 5px;
 `;
 
 export const Menu = styled.div`
@@ -42,12 +48,10 @@ export const Buttons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   img {
     width: 20%;
     max-width: 30px;
   }
-
   h2 {
     width: 45px;
     font-size: 17px;

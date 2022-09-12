@@ -32,6 +32,7 @@ const Data = styled.td`
 const Descricao = styled.td`
   color: #000000;
   text-align: justify;
+  line-break: anywhere;
 `;
 
 const Valor = styled.td`

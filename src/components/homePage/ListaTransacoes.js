@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { deleteTransacao } from "../../services/services.js";
 import Transacao from "./Transacao.js";
 
-export default function BoxTransacoes({
+export default function ListaTransacoes({
   transacoes,
   handleClick,
   reload,
   setReload,
 }) {
   const sum = transacoes.reduce((previousValue, currentValue) => {
-    const numb = currentValue.amount.replace(",", ".");
+    const numb = currentValue.valor.replace(",", ".");
     if (currentValue.tipo === "entrada") {
       return previousValue + Number(numb);
     } else {
@@ -37,10 +37,10 @@ export default function BoxTransacoes({
         <TableWrapper table={true}>
           <table>
             <tbody>
-              {transacoes.map((Transacao) => (
+              {transacoes.map((transacao) => (
                 <Transacao
-                  key={Transacao._id}
-                  {...Transacao}
+                  key={transacao._id}
+                  {...transacao}
                   deleteConfirm={deleteConfirm}
                   handleClick={handleClick}
                 />
@@ -75,6 +75,7 @@ const TableWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: ${(props) => (props.table ? "space-between" : "center")};
+  overflow-y: scroll;
   table {
     width: 100%;
     border-collapse: separate;
